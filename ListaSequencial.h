@@ -30,5 +30,6 @@ int remover_lista(Lista* li, int cod);
 int tamanho_lista(Lista* li);
 int lista_cheia(Lista *li);
 int lista_vazia(Lista *li);
+void menor_preco(Lista *li);
 void imprimir_lista(Lista *li);
 #endif //PRODUTO_SQ_LISTASEQUENCIAL_H

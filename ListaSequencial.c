@@ -73,7 +73,7 @@ int inserir_lista_ordenada(Lista* li, struct produto pd){
         return 0;
     if(li->qtd == MAX)
         return 0;
-    int i,k = 0;
+    int i = 0,k = 0;
     while(i < li->qtd && li->dados[i].codido < pd.codido)
         i++;
     for(k=li->qtd-1; k>=1; k--)
@@ -120,14 +120,26 @@ int remover_lista(Lista* li, int cod){
     return 1;
 }
 
+void menor_preco(Lista *li){
+
+    float menor = li->dados->preco;
+    for (int i = 0; i < tamanho_lista(li); ++i) {
+        if(li->dados[i].preco < menor ){
+            menor = li->dados[i].preco;
+        }
+    }
+    printf("\nO menor preco: %.2f", menor);
+}
+
 void imprimir_lista(Lista *li){
     int i;
     printf("-------------\n");
     for(i=0;i < li->qtd; i++){
-        printf("Matricula: %d\n", li->dados[i].codido);
+        printf("Codigo: %d\n", li->dados[i].codido);
         printf("Nome: %s\n",li->dados[i].nome);
         printf("Quantidade: %d\n", li->dados[i].qtd);
         printf("Preco: %.2f\n", li->dados[i].preco);
+        printf("\n-------------\n");
     }
     printf("\n-------------");
 }
